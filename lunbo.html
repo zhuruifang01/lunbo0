@@ -34,22 +34,24 @@
     <script src="zepto.min.js"></script>
     <script>
         $(function(){
+//          清除浏览器默认行为:
             $(".wheel").mousedown(function(e){
                 e.preventDefault();
             });
             $(".wheel").mousemove(function(e){
                 e.preventDefault();
             });
+//          触摸拖拽
             var width=$(window).width();
             var marginL;
             var num=0;
             touch.on("body","dragstart",".box",function(e){
                 $(".box").css({
-                    transtion:"none"
+                    transition:"none"
                 })
                 marginL=parseInt($(".box").css("marginLeft"))?parseInt($(".box").css("marginLeft")):0;
             });
-            touch.on("body","drag",".box",function(e){
+            touch.on("body","drag",".box",function(e){ //拖拽事件
 //           console.log(e.direction);
 //           console.log(e.x);
                 $(".box").css({
@@ -71,13 +73,13 @@
                     }
                     $(".box").css({
                         marginLeft:-num*width,
-                        transtion:"margin-left 2s ease"
+                        transition:"margin-left 2s ease"
                     })
 
                 }else{
                     $(".box").css({
-                        marginLeft:num*width,
-                        transition:"margin 1s ease"
+                        marginLeft:-num*width,
+                        transition:"margin-left 1s ease"
                     });
                 }
             });
@@ -87,9 +89,9 @@
 <body>
 <div class="wheel">
    <div class="box">
-       <a href=""><img src="img/banner1.jpg" alt=""></a>
-       <a href=""><img src="img/banner2.jpg" alt=""></a>
-       <a href=""><img src="img/banner3.jpg" alt=""></a>
+       <a href="##"><img src="img/banner1.jpg" alt=""></a>
+       <a href="##"><img src="img/banner2.jpg" alt=""></a>
+       <a href="##"><img src="img/banner3.jpg" alt=""></a>
    </div>
 </div>
 </body>
